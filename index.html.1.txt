@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Portal</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#f4f7fb,#e8eef7);
+}
+
+/* COMMON BOX */
+.box{
+    width:520px;
+    background:#ffffff;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.15);
+    text-align:center;
+    display:none;
+}
+
+.box h1,.box h2{
+    color:#1f2a44;
+    margin-bottom:10px;
+}
+
+.box p{
+    color:#6c757d;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+/* INPUTS */
+.box input,.box select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+/* BUTTON */
+.box button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:30px;
+    background:#3f72af;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.box button:hover{
+    background:#2b5b95;
+}
+
+/* SUCCESS TEXT */
+.success{
+    margin-top:15px;
+    color:green;
+    font-weight:600;
+}
+
+/* DEFAULT PAGE */
+#dashboard{
+    display:block;
+}
+</style>
+</head>
+
+<body>
+
+<!-- DASHBOARD -->
+<div class="box" id="dashboard">
+    <h1>Student Portal</h1>
+    <p>Professional Academic Dashboard</p>
+    <button onclick="showSignin()">Sign In</button>
+</div>
+
+<!-- SIGN IN (REGISTRATION) -->
+<div class="box" id="signin">
+    <h2>Student Registration</h2>
+    <p>Fill in your academic details</p>
+
+    <input type="text" placeholder="Register Number">
+    <input type="text" placeholder="Full Name">
+    <input type="email" placeholder="Email Address">
+    <input type="date">
+
+    <select>
+        <option>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+
+    <input type="text" placeholder="Department">
+    <input type="password" placeholder="Create Password">
+
+    <button onclick="showLogin()">Register</button>
+</div>
+
+<!-- LOGIN PAGE -->
+<div class="box" id="login">
+    <h2>Login</h2>
+    <p>Access your student account</p>
+
+    <input type="text" placeholder="Username / Register Number">
+    <input type="password" placeholder="Password">
+
+    <button onclick="showUpload()">Login</button>
+</div>
+
+<!-- UPLOAD PAGE -->
+<div class="box" id="upload">
+    <h2>Document Upload</h2>
+    <p>Upload your certificates securely</p>
+
+    <input type="file">
+    <button onclick="uploadSuccess()">Upload</button>
+
+    <div class="success" id="uploadMsg"></div>
+</div>
+
+<script>
+function hideAll(){
+    document.getElementById("dashboard").style.display="none";
+    document.getElementById("signin").style.display="none";
+    document.getElementById("login").style.display="none";
+    document.getElementById("upload").style.display="none";
+}
+
+function showSignin(){
+    hideAll();
+    document.getElementById("signin").style.display="block";
+}
+
+function showLogin(){
+    hideAll();
+    document.getElementById("login").style.display="block";
+}
+
+function showUpload(){
+    hideAll();
+    document.getElementById("upload").style.display="block";
+}
+
+function uploadSuccess(){
+    document.getElementById("uploadMsg").innerText =
+        "File uploaded successfully ✔";
+}
+</script>
+
+</body>
+</html>
